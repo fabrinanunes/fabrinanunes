@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @fabrinanunes
 - 🇧🇷 I'm from Brazil
 - 🎓 Bachelor in Law
-- 💻 I'm currently trasitioning my career into the Tech World
+- 💻 I'm trasitioning my career into the Tech World
 - 👧 I'm a newbie to coding 
 - 📘 I’m currently learning HTML & CSS
 - 👩‍💻 I’m looking to become a Front-end Dev
