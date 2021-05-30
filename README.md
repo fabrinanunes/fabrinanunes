@@ -1,13 +1,16 @@
-- 👋 Hi, I’m @fabrinanunes
-- 🇧🇷 I'm from Brazil
-- 🎓 Bachelor in Law
-- 💻 I'm trasitioning my career into the Tech World
-- 👧 I'm a newbie to coding 
-- 📘 I’m currently learning HTML, CSS & JavaScrip
-- 👩‍💻 I’m looking to become a Front-end Dev
+## Hi, i'm Fabrina Nunes! 
+<h3 align="center">Brazilian girl trasitioning her career into the Tech World</h3>
 
-- name: generate-snake-game-from-github-contribution-grid
-  uses: Platane/snk@v0.0.18
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
+
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=fabrinanunes&show_icons=true&locale=en&layout=compact" alt="fabrinanunes" /></p>
+
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=fabrinanunes&show_icons=true&locale=en" alt="fabrinanunes" /></p>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=fabrinanunes&" alt="fabrinanunes" /></p>
+
 
 <!---
 fabrinanunes/fabrinanunes is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
