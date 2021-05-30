@@ -3,7 +3,7 @@
 - 🎓 Bachelor in Law
 - 💻 I'm trasitioning my career into the Tech World
 - 👧 I'm a newbie to coding 
-- 📘 I’m currently learning HTML & CSS
+- 📘 I’m currently learning HTML, CSS & JavaScrip
 - 👩‍💻 I’m looking to become a Front-end Dev
 
 - name: generate-snake-game-from-github-contribution-grid
