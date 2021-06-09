@@ -1,5 +1,5 @@
-## Hi, I'm Fabrina Nunes! 
-<h3>Brazilian girl trasitioning her career into the Tech World</h3>
+## Olá Mundo!
+<h3>Eu sou a Fabrina e seja muito bem vindo!</h3>
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=fabrinanunes&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"" alt="fabrinanunes" /></p>
 
