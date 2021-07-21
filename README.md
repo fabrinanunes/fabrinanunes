@@ -1,6 +1,6 @@
 
 # Hello 👋🏽
-I'm an 27yo <strong>front-end developer</strong> living in Brazil 🇧🇷
+I'm an 28yo <strong>front-end developer</strong> living in Brazil 🇧🇷
 
 Info:
 - 📚 Studying Analysis Systems Development at UNINTER
