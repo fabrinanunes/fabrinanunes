@@ -3,7 +3,7 @@
 I'm an 28yo <strong>front-end developer</strong> living in Brazil 🇧🇷
 
 Info:
-- 📚 Studying Analysis Systems Development at UNINTER
+- �Back-end Dev Trainee at LinkApi
 - 👩🏽‍🎓 Bachelor in Law (Class of 2019)
 - 👩🏽‍💻 I'm a very curious person and love learning new stuff
 
