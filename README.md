@@ -2,11 +2,6 @@
 # Hello 👋🏽
 I'm an 28yo <strong>front-end developer</strong> living in Brazil 🇧🇷
 
-Info:
-- �Back-end Dev Trainee at LinkApi
-- 👩🏽‍🎓 Bachelor in Law (Class of 2019)
-- 👩🏽‍💻 I'm a very curious person and love learning new stuff
-
 ### 🛠 Analytics & Languages
 <div align="center">
   <img height=160px src="https://github-readme-stats.vercel.app/api?username=fabrinanunes&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"" alt="fabrinanunes" />
