@@ -1,6 +1,6 @@
 
 # Hello 👋🏽
-I'm an 28yo <strong>front-end developer</strong> living in Brazil 🇧🇷
+I'm an 28yo <strong>front-end student & back-end developer</strong> living in Brazil 🇧🇷
 
 ### 🛠 Analytics & Languages
 <div align="center">
