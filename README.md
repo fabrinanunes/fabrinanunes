@@ -1,5 +1,5 @@
 
-# Hello 👋🏽
+# Hello World!
 I'm an 28yo <strong>front-end student & back-end developer</strong> living in Brazil 🇧🇷
 
 ### 🛠 Analytics & Languages
