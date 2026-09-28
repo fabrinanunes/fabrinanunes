@@ -1,12 +1,10 @@
 # Hello World! 👋
 
-I'm a 33yo **full stack software developer** living in Brazil 🇧🇷, currently working at [Mercado Livre](https://www.mercadolivre.com.br/).
+I'm a **Full Stack Software Developer** based in Brazil 🇧🇷, currently working at **Mercado Livre**.
 
-## 🛠️ Tech Stack
+I work primarily with **React, TypeScript, and Go**, building web applications and exploring different parts of the stack.
 
-<!-- STACK_START -->
-Loading stack statistics...
-<!-- STACK_END -->
+I'm always learning, experimenting with new technologies, and looking for better ways to build simple, reliable, and scalable software.
 
 <!---
 fabrinanunes/fabrinanunes is a ✨ special ✨ repository because its `README.md` file appears on your GitHub profile.
