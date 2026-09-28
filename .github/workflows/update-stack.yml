@@ -1,38 +1,150 @@
-name: Update Stack Statistics
+import fs from "node:fs";
 
-on:
-  schedule:
-    - cron: "0 9 * * 1"
+const token = process.env.GITHUB_TOKEN;
+const owner = process.env.GITHUB_REPOSITORY_OWNER;
 
-  workflow_dispatch:
+const headers = {
+  Authorization: `Bearer ${token}`,
+  Accept: "application/vnd.github+json",
+  "X-GitHub-Api-Version": "2022-11-28",
+};
 
-permissions:
-  contents: write
+async function github(path) {
+  const response = await fetch(`https://api.github.com${path}`, {
+    headers,
+  });
 
-jobs:
-  update-stack:
-    runs-on: ubuntu-latest
+  if (!response.ok) {
+    throw new Error(
+      `GitHub API error: ${response.status} ${response.statusText}`
+    );
+  }
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+  return response.json();
+}
 
-      - name: Update stack statistics
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/update-stack.mjs
+async function getRepositories() {
+  const repositories = [];
+  let page = 1;
 
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  while (true) {
+    const repos = await github(
+      `/users/${owner}/repos?per_page=100&page=${page}&type=owner`
+    );
 
-          git add README.md
+    if (repos.length === 0) {
+      break;
+    }
 
-          if git diff --cached --quiet; then
-            echo "No changes detected."
-            exit 0
-          fi
+    repositories.push(...repos);
+    page++;
+  }
 
-          git commit -m "chore: update stack statistics"
-          git push
+  return repositories;
+}
+
+async function getLanguages(repository) {
+  return github(`/repos/${owner}/${repository.name}/languages`);
+}
+
+function calculatePercentages(languages) {
+  const total = Object.values(languages).reduce(
+    (sum, bytes) => sum + bytes,
+    0
+  );
+
+  if (total === 0) {
+    return [];
+  }
+
+  return Object.entries(languages)
+    .map(([language, bytes]) => ({
+      language,
+      bytes,
+      percentage: (bytes / total) * 100,
+    }))
+    .sort((a, b) => b.bytes - a.bytes);
+}
+
+function createBar(percentage) {
+  const totalBlocks = 20;
+  const filledBlocks = Math.round(
+    (percentage / 100) * totalBlocks
+  );
+
+  return (
+    "█".repeat(filledBlocks) +
+    "░".repeat(totalBlocks - filledBlocks)
+  );
+}
+
+async function main() {
+  console.log(`Collecting repositories for ${owner}...`);
+
+  const repositories = await getRepositories();
+
+  console.log(`Found ${repositories.length} repositories.`);
+
+  const languageTotals = {};
+
+  for (const repository of repositories) {
+    if (repository.fork || repository.archived) {
+      continue;
+    }
+
+    console.log(`Analyzing ${repository.name}...`);
+
+    const languages = await getLanguages(repository);
+
+    for (const [language, bytes] of Object.entries(languages)) {
+      languageTotals[language] =
+        (languageTotals[language] || 0) + bytes;
+    }
+  }
+
+  const percentages = calculatePercentages(languageTotals).slice(0, 6);
+
+  const rows = percentages
+    .map(
+      ({ language, percentage }) =>
+        `| ${language} | ${createBar(percentage)} | ${percentage.toFixed(1)}% |`
+    )
+    .join("\n");
+
+  const content = `## 📊 Repository Languages
+
+| Language | Usage | Percentage |
+|---|---|---:|
+${rows}
+
+*Based on the language composition of my public repositories.*
+`;
+
+  const readmePath = "README.md";
+  const readme = fs.readFileSync(readmePath, "utf8");
+
+  const startMarker = "<!-- STACK_START -->";
+  const endMarker = "<!-- STACK_END -->";
+
+  const start = readme.indexOf(startMarker);
+  const end = readme.indexOf(endMarker);
+
+  if (start === -1 || end === -1) {
+    throw new Error("README markers not found.");
+  }
+
+  const updatedReadme =
+    readme.slice(0, start + startMarker.length) +
+    "\n" +
+    content +
+    readme.slice(end);
+
+  fs.writeFileSync(readmePath, updatedReadme);
+
+  console.log("README updated successfully.");
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
